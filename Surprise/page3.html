@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surat Birthday</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffccf2;
+            font-family: 'Dancing Script', cursive;
+            overflow: hidden;
+        }
+        #letter-icon {
+            font-size: 10em;
+            color: #FCF4F4;
+            cursor: pointer;
+            animation: float 3s ease-in-out infinite;
+            z-index: 2;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        #letter-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 600px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            z-index: 3;
+            animation: zoomIn 0.5s ease-out;
+        }
+        @keyframes zoomIn {
+            from { transform: translate(-50%, -50%) scale(0); }
+            to { transform: translate(-50%, -50%) scale(1); }
+        }
+        #letter-content {
+            font-size: 1.5em;
+            color: #333;
+            text-align: center;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5em;
+            color: #ff6f61;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #letter-icon {
+                font-size: 6em; /* Saiz icon lebih kecil untuk fon */
+            }
+            #letter-content {
+                font-size: 1.2em; /* Saiz tulisan lebih kecil untuk fon */
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Icon Surat dari Font Awesome -->
+    <div id="letter-icon" onclick="openLetter()">
+        <i class="fas fa-envelope"></i> <!-- Icon surat dari Font Awesome -->
+    </div>
+
+    <!-- Surat Pop-up -->
+    <div id="letter-popup">
+        <div class="close-btn" onclick="closeLetter()">✖️</div>
+        <div id="letter-content">
+            <h1>💌 For You 💌</h1>
+            <p>
+                Happy Birthday to the man who makes my life worth living. Your kindness, love, sweetness have inspired me to be a better person. You are my best friend, my soulmate, my world. My forever perfect boy! You are my dream come true! Happy birthday baby! 💖
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function openLetter() {
+            const letterPopup = document.getElementById('letter-popup');
+            letterPopup.style.display = 'block';
+            document.getElementById('letter-icon').style.display = 'none';
+        }
+
+        function closeLetter() {
+            const letterPopup = document.getElementById('letter-popup');
+            letterPopup.style.display = 'none';
+            document.getElementById('letter-icon').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
